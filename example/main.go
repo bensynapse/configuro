@@ -6,7 +6,7 @@ import (
 	"github.com/sherifabdlnaby/configuro"
 )
 
-//Config Is our main Application Config Struct.
+// Config Is our main Application Config Struct.
 type Config struct {
 	// Primitive Types
 	Number      int
@@ -19,14 +19,14 @@ type Config struct {
 	Logger   Logger
 }
 
-//Database A sub-config struct
+// Database A sub-config struct
 type Database struct {
 	Hosts    []string
 	Username string
 	Password string
 }
 
-//Logger Another sub-config struct
+// Logger Another sub-config struct
 type Logger struct {
 	Level string
 	Debug bool

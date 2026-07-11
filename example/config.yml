@@ -1,7 +1,7 @@
 number: 6800
 number_list: 1,2,3,4             # List can be declared using comma separated lists too.
 word: String set in YAML file
-another_word: String set in YAML file (Should be Overriden by ENV) # Replaced by CONFIG_ANOTHER__WORD in OS Env or .env. *(notice the double __ )
+another_word: String set in YAML file (Should be Overridden by ENV) # Replaced by CONFIG_ANOTHER__WORD in OS Env or .env. *(notice the double __ )
 word_map:
     key1: value1
     key2: value2

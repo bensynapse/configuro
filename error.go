@@ -7,12 +7,12 @@ import (
 	"gopkg.in/go-playground/validator.v9"
 )
 
-//ErrValidationErrors Error that hold multiple errors.
+// ErrValidationErrors Error that hold multiple errors.
 type ErrValidationErrors struct {
 	error
 }
 
-//ErrValidationTag Error if validation failed by a tag
+// ErrValidationTag Error if validation failed by a tag
 type ErrValidationTag struct {
 	field   string
 	message string
@@ -20,7 +20,7 @@ type ErrValidationTag struct {
 	tag     string
 }
 
-//ErrValidationFunc Error if validation failed by Validatable Interface.
+// ErrValidationFunc Error if validation failed by Validatable Interface.
 type ErrValidationFunc struct {
 	field string
 	err   error
@@ -51,22 +51,22 @@ func (e *ErrValidationFunc) Error() string {
 	return fmt.Sprintf(`%s`, e.err)
 }
 
-//Errors Return a list of Errors held inside ErrValidationErrors.
+// Errors Return a list of Errors held inside ErrValidationErrors.
 func (e *ErrValidationErrors) Errors() []error {
 	return multierr.Errors(e.error)
 }
 
-//Unwrap to support errors IS|AS
+// Unwrap to support errors IS|AS
 func (e *ErrValidationTag) Unwrap() error {
 	return e.err
 }
 
-//Unwrap to support errors IS|AS
+// Unwrap to support errors IS|AS
 func (e *ErrValidationFunc) Unwrap() error {
 	return e.err
 }
 
-//Unwrap to support errors IS|AS
+// Unwrap to support errors IS|AS
 func (e *ErrValidationErrors) Unwrap() error {
 	return e.error
 }

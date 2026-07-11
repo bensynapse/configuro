@@ -7,12 +7,12 @@ import (
 	"gopkg.in/go-playground/validator.v9"
 )
 
-//Validatable Any Type that Implements this interface will have its WithValidateByTags() function called when validating config.
+// Validatable Any Type that Implements this interface will have its WithValidateByTags() function called when validating config.
 type Validatable interface {
 	Validate() error
 }
 
-//Validate Validates Struct using Tags and Any Fields that Implements the Validatable interface.
+// Validate Validates Struct using Tags and Any Fields that Implements the Validatable interface.
 func (c *Config) Validate(configStruct interface{}) error {
 
 	var errs error
@@ -57,12 +57,12 @@ func recursiveValidate(obj interface{}, recursive bool, returnOnFirstErr bool) e
 
 	var errs error
 
-	if reflect.ValueOf(obj).Kind() == reflect.Ptr && reflect.ValueOf(obj).IsNil() {
+	if reflect.ValueOf(obj).Kind() == reflect.Pointer && reflect.ValueOf(obj).IsNil() {
 		return nil
 	}
 
 	val := reflect.ValueOf(obj)
-	if val.Kind() == reflect.Ptr {
+	if val.Kind() == reflect.Pointer {
 		val = val.Elem()
 	}
 

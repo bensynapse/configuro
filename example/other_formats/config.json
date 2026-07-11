@@ -2,7 +2,7 @@
     "number": 6800,
     "number_list": "1,2,3,4",
     "word": "String set in YAML file",
-    "another_word": "String set in YAML file (Should be Overriden by ENV)",
+    "another_word": "String set in YAML file (Should be Overridden by ENV)",
     "word_map": {
         "key1": "value1",
         "key2": "value2"
