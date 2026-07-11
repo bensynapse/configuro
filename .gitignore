@@ -3,6 +3,10 @@ bin
 vendor
 .env
 
+### mise
+mise.local.toml
+mise.*.local.toml
+
 ### JetBrains template
 # User-specific stuff
 .idea

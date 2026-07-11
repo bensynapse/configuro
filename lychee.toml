@@ -1,0 +1,7 @@
+# lychee dead-link checker config. Auto-loaded from repo root.
+# Offline: only verify local/relative file links resolve. External http(s) URLs
+# are skipped (no network). Flip to false to also validate external URLs.
+#
+# NOTE: do not add `exclude_path` here — its entries are regexes matched against
+# the whole path. hk already scopes the file list it passes in.
+offline = true

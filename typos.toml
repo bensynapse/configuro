@@ -1,0 +1,20 @@
+# typos spell-checker config. Auto-discovered from the repo root by `typos`.
+# Scaffold: uncomment/extend as real false positives appear.
+# Docs: https://github.com/crate-ci/typos
+
+[files]
+extend-exclude = [
+    # "CHANGELOG.md",
+]
+
+[default]
+extend-ignore-re = [
+    # "[0-9a-f]{32,}",
+]
+
+[default.extend-words]
+Sherif = "Sherif" # maintainer name, not a misspelling of "Sheriff"
+Configuro = "Configuro"
+
+[default.extend-identifiers]
+# myFnNotATypo = "myFnNotATypo"

@@ -1,0 +1,22 @@
+# betterleaks secret-scanner config (gitleaks-compatible). Auto-discovered from
+# the repo root. Scaffold: add allowlist entries only for confirmed false
+# positives (example keys, test fixtures), never real secrets.
+# Docs: https://github.com/betterleaks/betterleaks
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Repo-wide allowlist for known-safe matches."
+
+paths = [
+    # '''example/.*''',
+]
+
+regexes = [
+    # '''AKIAEXAMPLE[0-9A-Z]+''',
+]
+
+stopwords = [
+    # "example",
+]

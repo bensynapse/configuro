@@ -79,6 +79,35 @@ go get github.com/sherifabdlnaby/configuro
 import "github.com/sherifabdlnaby/configuro"
 ```
 
+# Development
+
+Contributing? This repo uses [**mise**](https://mise.jdx.dev) to pin the Go toolchain, linters, and git hooks.
+
+<details>
+<summary><b>Install mise (first time on this machine)</b></summary>
+
+```sh
+brew install mise          # macOS / Linux (Homebrew)
+# or: winget install jdx.mise · see https://mise.jdx.dev/installing-mise.html
+eval "$(mise activate zsh)"   # add to your shell rc; use bash/fish as appropriate
+mise doctor
+```
+
+</details>
+
+```sh
+mise trust      # allow this repo's mise config to load
+mise run setup  # install pinned tools + Go module deps (git hooks self-install)
+```
+
+| Command                                  | What it does                                                          |
+| ---------------------------------------- | --------------------------------------------------------------------- |
+| `mise run check` (alias `mise run lint`) | Run all linters, formatters, and validators. Add `--fix` to auto-fix. |
+| `mise run test`                          | `go test -race ./...`                                                 |
+| `mise tasks`                             | List every available task.                                            |
+
+On commit, [hk](https://hk.jdx.dev) runs the same `check` as CI on staged files. Skip with `git commit --no-verify` for a WIP commit. See [AGENTS.md](AGENTS.md) for the agent-facing guide.
+
 # Usage
 
 ### 1. Define You Config Struct.
@@ -197,7 +226,7 @@ The above settings can be changed upon constructing the configuro object via pas
 
 # Built on top of
 - [spf13/viper](https://github.com/spf13/viper)
-- [mitchellh/mapstructure](github.com/mitchellh/mapstructure)
+- [mitchellh/mapstructure](https://github.com/mitchellh/mapstructure)
 - [go-playground/validator](https://github.com/go-playground/validator)
 - [joho/godotenv](https://github.com/joho/godotenv)
 

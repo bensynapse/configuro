@@ -1,46 +1,48 @@
+# golangci-lint v2 config. Replaces the dormant v1.21-era enable list
+# (golint/structcheck/varcheck/deadcode are gone; revive replaces golint).
+version: "2"
+
 run:
-    skip-dirs:
-        - .gen
-
-    skip-files:
-        - ".*_gen\\.go$"
-
-linters-settings:
-    gocyclo:
-        min-complexity: 30
-    goconst:
-        min-len: 2
-        min-occurrences: 2
-    misspell:
-        locale: US
-    golint:
-        min-confidence: 0.8
+  tests: true
 
 linters:
-    disable-all: true
-    enable:
-        - goconst
-        - gocyclo
-        - golint
-        - govet
-        - gofmt
-        - errcheck
-        - staticcheck
-        - unused
-        - gosimple
-        - structcheck
-        - varcheck
-        - ineffassign
-        - deadcode
-        - unconvert
-        - gosec
-        - golint
-        - bodyclose
-        - misspell
-        - unconvert
-        - unparam
-        - dogsled
-        - goimports
+  default: none
+  enable:
+    - bodyclose
+    - dogsled
+    - errcheck
+    - goconst
+    - gocyclo
+    - gosec
+    - govet
+    - ineffassign
+    - misspell
+    - revive
+    - staticcheck
+    - unconvert
+    - unparam
+    - unused
+  settings:
+    gocyclo:
+      min-complexity: 30
+    goconst:
+      min-len: 2
+      min-occurrences: 2
+    misspell:
+      locale: US
+    revive:
+      confidence: 0.8
+  exclusions:
+    paths:
+      - .gen
+      - third_party$
+      - builtin$
+      - examples$
+    rules:
+      - path: '.*_gen\.go$'
+        text: ".*"
 
-service:
-    golangci-lint-version: 1.21.x
+formatters:
+  enable:
+    - gofmt
+    - goimports
